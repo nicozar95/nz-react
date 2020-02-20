@@ -41,11 +41,11 @@ class Game extends Component {
       return;
     }
     squares[i] = xIsNext ? 'X' : 'O';
-    this.setState( prevState => ({ 
-      history: newHistory.concat([{squares}]),
+    this.setState(prevState => ({
+      history: newHistory.concat([{ squares }]),
       stepNumber: newHistory.length,
-      xIsNext: !prevState.xIsNext 
-      })
+      xIsNext: !prevState.xIsNext
+    })
     );
   }
 
