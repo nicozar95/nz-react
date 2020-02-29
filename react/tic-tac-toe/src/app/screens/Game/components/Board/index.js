@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 class Board extends Component {
   handleClick = i => this.props.onClick(i);
 
-  renderSquare(i) {
+  renderSquare = i => {
     const { squares } = this.props;
     return (
       <Square

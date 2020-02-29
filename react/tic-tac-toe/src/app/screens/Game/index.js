@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import calculateWinner from '../../../utils/calculate-winner';
+import calculateWinner from '~utils/calculate-winner';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
@@ -32,7 +32,7 @@ class Game extends Component {
     );
   }
 
-  jumpTo = (step) => {
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
