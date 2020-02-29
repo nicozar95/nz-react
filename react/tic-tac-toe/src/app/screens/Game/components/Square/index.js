@@ -3,17 +3,17 @@ import { func, string } from 'prop-types';
 
 import styles from './styles.module.scss';
 
-function Square(props) {
+function Square({ value, onClick }) {
   return (
-    <button type="button" className={styles.square} onClick={props.onClick}>
-      {props.value}
+    <button type="button" className={styles.square} onClick={onClick}>
+      {value}
     </button>
   );
 }
 
 Square.propTypes = {
-  value: string,
-  onClick: func
+  onClick: func.isRequired,
+  value: string
 };
 
 export default Square;

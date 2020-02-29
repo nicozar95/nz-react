@@ -6,12 +6,14 @@ import Square from '../Square';
 import styles from './styles.module.scss';
 
 class Board extends Component {
+  handleClick = i => this.props.onClick(i);
+
   renderSquare(i) {
-    const { squares, onClick } = this.props;
+    const { squares } = this.props;
     return (
       <Square
         value={squares[i]}
-        onClick={() => onClick(i)}
+        onClick={() => this.handleClick(i)}
       />);
   }
 
