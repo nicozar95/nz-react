@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import { func, string, arrayOf } from 'prop-types';
 
 import Square from '../Square';
 
 import styles from './styles.module.scss';
 
 class Board extends Component {
-  renderSquare() {
-    return <Square />;
+  handleClick = i => this.props.onClick(i);
+
+  renderSquare = i => {
+    const { squares } = this.props;
+    return (
+      <Square
+        value={squares[i]}
+        onClick={() => this.handleClick(i)}
+      />);
   }
 
   render() {
-    const status = 'Next player: X';
     return (
       <div>
-        <div className={styles.status}>{status}</div>
         <div className={styles.boardRow}>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -33,5 +39,10 @@ class Board extends Component {
     );
   }
 }
+
+Board.propTypes = {
+  squares: arrayOf(string),
+  onClick: func
+};
 
 export default Board;
